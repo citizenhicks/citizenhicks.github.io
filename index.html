@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Hick | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👽</text></svg>">
+    <meta name="theme-color" content="#1f2335">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-color: #1f2335;
+            --text-color: #c0caf5;
+            --accent-color: #7aa2f7;
+            --secondary-color: #ff9e64;
+            --tertiary-color: #7dcfff;
+            --highlight-color: #ff007c;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+        }
+
+        #gradient-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(45deg, var(--accent-color), var(--tertiary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--tertiary-color);
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p, li {
+            color: var(--text-color);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin: 0.2rem;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #fff;
+        }
+
+        .projects {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 1.5rem;
+            background: rgba(122, 162, 247, 0.1);
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--highlight-color);
+        }
+
+        .skills, .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skills .tag, .tech-stack .tag {
+            background: var(--tertiary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0.7;
+        }
+
+        a {
+            color: var(--tertiary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gradient-canvas"></canvas>
+    <div class="container">
+        <header>
+            <h1>Citizen Hick</h1>
+            <p class="subtitle">Innovator | Developer | AI Enthusiast</p>
+            <div class="status">current status: exploring the intersection of AI and blockchain</div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p>Indie ML researcher and AI enthusiast with a passion for developing innovative solutions. Experienced in machine learning, reinforcement learning, and blockchain technologies. Transitioned from big tech to building projects in the open, focusing on creating impactful and scalable applications.</p>
+            <div class="skills">
+                <span class="tag">Python</span>
+                <span class="tag">Swift</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Langchain</span>
+                <span class="tag">SwiftUI</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Git</span>
+                <span class="tag">Jupyter Notebooks</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Projects</h2>
+            <div class="projects">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Entropix</h3>
+                    <p>Closely following and contributing to the Entropix project.</p>
+                    <a href="https://github.com/xjdr-alt/entropix" target="_blank">GitHub Repository</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>GRAPES: Graph-based Reasoning and Planning with Ensemble Systems</h3>
+                    <p>An innovative approach to enhance language model reasoning using Monte Carlo Tree Search.</p>
+                    <ul>
+                        <li>Tech Stack: Python, asyncio, Pydantic</li>
+                        <li>Achievement: Improved accuracy from 62.50% to 78.12% on complex reasoning tasks</li>
+                    </ul>
+                    <a href="https://github.com/Arrabonae/grapes" target="_blank">GitHub Repository</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>MADDPG for Cooperative AI</h3>
+                    <p>Implementation of Multi-agent Deep Deterministic Policy Gradient for cooperative AI in PettingZoo's MPE environment.</p>
+                    <ul>
+                        <li>Tech Stack: Python, TensorFlow, PettingZoo</li>
+                        <li>Features: Centralized critic with decentralized actors, custom reward shaping</li>
+                    </ul>
+                    <a href="https://github.com/Arrabonae/MADDPG" target="_blank">GitHub Repository</a>
+                </div>
+
+                <!-- Add more project cards similarly -->
+                <!-- Example for TD3-HER -->
+                <div class="project-card">
+                    <h3>TD3-HER for Robotic Control</h3>
+                    <p>Implementation of Twin Delayed Deep Deterministic Policy Gradient with Hindsight Experience Replay for sparse reward environments.</p>
+                    <ul>
+                        <li>Tech Stack: Python, TensorFlow, Gymnasium, Panda-Gym</li>
+                        <li>Features: Sparse reward learning, Hindsight Experience Replay, Twin Delayed DDPG</li>
+                    </ul>
+                    <a href="https://github.com/Arrabonae/TD3_HER" target="_blank">GitHub Repository</a>
+                </div>
+
+                <!-- Continue adding other projects in similar format -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="tag">Python</span>
+                <span class="tag">Swift</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Langchain</span>
+                <span class="tag">SwiftUI</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Git</span>
+                <span class="tag">Jupyter Notebooks</span>
+                <span class="tag">Reinforcement Learning</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Sentiment Analysis</span>
+                <span class="tag">Asynchronous Programming</span>
+                <span class="tag">Graph Algorithms</span>
+                <span class="tag">API Integration</span>
+                <span class="tag">iOS Development</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>GitHub Stats</h2>
+            <p><img src="https://github-readme-stats.vercel.app/api?username=Arrabonae&show_icons=true&theme=radical" alt="GitHub Stats"></p>
+        </section>
+
+        <section class="section">
+            <h2>Tech Stack</h2>
+            <div class="tech-stack">
+                <img class="badge" src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
+                <img class="badge" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" alt="Java">
+                <img class="badge" src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+                <img class="badge" src="https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white" alt="Swift">
+                <img class="badge" src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
+                <img class="badge" src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+                <img class="badge" src="https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white" alt="Anaconda">
+                <img class="badge" src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+                <img class="badge" src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white" alt="Keras">
+                <img class="badge" src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+                <img class="badge" src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+                <img class="badge" src="https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly">
+                <img class="badge" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" alt="PyTorch">
+                <img class="badge" src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="scikit-learn">
+                <img class="badge" src="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=white" alt="SciPy">
+                <img class="badge" src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" alt="TensorFlow">
+            </div>
+        </section>
+
+        <footer>
+            <p>Find me on <a href="https://x.com/citizenhick" target="_blank">X</a> | <a href="https://github.com/Arrabonae" target="_blank">GitHub</a> | Built with passion and code</p>
+            <p>![Visit Count](https://visitcount.itsvg.in/api?id=arrabonae&icon=0&color=6)</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple gradient animation with Three.js
+        const canvas = document.getElementById('gradient-canvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+        const geometry = new THREE.PlaneGeometry(2, 2);
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                u_time: { value: 0 },
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float u_time;
+                varying vec2 vUv;
+                
+                void main() {
+                    vec2 uv = vUv;
+                    float t = u_time * 0.1;
+                    
+                    vec3 color1 = vec3(0.12, 0.15, 0.21); // #1f2335
+                    vec3 color2 = vec3(0.15, 0.16, 0.23); // #24283b
+                    vec3 color3 = vec3(0.16, 0.18, 0.26); // #292e42
+                    vec3 color4 = vec3(0.23, 0.26, 0.38); // #3b4261
+                    vec3 color5 = vec3(0.25, 0.28, 0.41); // #414868
+                    
+                    // Create a dynamic gradient
+                    vec3 color = mix(color1, color2, uv.x + sin(t) * 0.1);
+                    color = mix(color, color3, uv.y + cos(t) * 0.1);
+                    color = mix(color, color4, sin(uv.x * 10.0 + t) * 0.5 + 0.5);
+                    color = mix(color, color5, cos(uv.y * 10.0 + t) * 0.5 + 0.5);
+                    
+                    gl_FragColor = vec4(color, 0.3);
+                }
+            `,
+            transparent: true
+        });
+
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        function animate(time) {
+            material.uniforms.u_time.value = time * 0.001;
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+
+        function resize() {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate(0);
+    </script>
+</body>
+</html>
