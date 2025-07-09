@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hicksford | citizenhicks</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👽</text></svg>">
-    <meta name="theme-color" content="#24283b">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js">
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1831956549591326720/wLoIlZeR_400x400.jpg">
+    <meta name="theme-color" content="#1e1e2e">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap');
 
         :root {
-            --bg-color: #24283b;
-            --text-color: #c0caf5;
-            --accent-color: #7aa2f7;
-            --secondary-color: #ff9e64;
-            --tertiary-color: #7dcfff;
-            --highlight-color: #ff007c;
+            /* Catppuccin Mocha color palette */
+            --bg-color: #1e1e2e;
+            --surface-color: #181825;
+            --text-color: #cdd6f4;
+            --accent-color: #89b4fa;
+            --secondary-color: #fab387;
+            --tertiary-color: #89dceb;
+            --highlight-color: #f5c2e7;
+            --green-color: #a6e3a1;
+            --red-color: #f38ba8;
+            --yellow-color: #f9e2af;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -24,8 +33,9 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'JetBrains Mono', monospace;
             line-height: 1.6;
+            font-weight: 400;
         }
 
         #gradient-canvas {
@@ -35,7 +45,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
         .container {
@@ -56,6 +66,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .subtitle {
@@ -63,6 +74,7 @@
             color: var(--tertiary-color);
             opacity: 0.8;
             margin-top: 0.5rem;
+            font-weight: 300;
         }
 
         .status {
@@ -75,9 +87,10 @@
         .section {
             margin: 3rem 0;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(49, 50, 68, 0.5);
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(137, 180, 250, 0.2);
         }
 
         h2 {
@@ -85,10 +98,18 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
         }
 
         p, li {
             color: var(--text-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
         }
 
         .tag {
@@ -97,9 +118,10 @@
             margin: 0.2rem;
             background: var(--secondary-color);
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-family: 'JetBrains Mono', monospace;
-            color: #fff;
+            color: var(--surface-color);
+            font-weight: 600;
         }
 
         .projects {
@@ -109,14 +131,40 @@
 
         .project-card {
             padding: 1.5rem;
-            background: rgba(122, 162, 247, 0.1);
+            background: rgba(137, 180, 250, 0.1);
             border-radius: 8px;
-            border: 1px solid var(--accent-color);
+            border: 1px solid rgba(137, 180, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+            background: rgba(137, 180, 250, 0.15);
+            transform: translateY(-2px);
         }
 
         .project-card h3 {
             margin-top: 0;
             color: var(--highlight-color);
+        }
+
+        .project-card.featured h3 {
+            color: var(--green-color);
+        }
+
+        .project-card.beta-tag {
+            position: relative;
+        }
+
+        .beta-label {
+            display: inline-block;
+            background: var(--red-color);
+            color: var(--surface-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
         }
 
         .skills, .tech-stack {
@@ -127,6 +175,7 @@
 
         .skills .tag, .tech-stack .tag {
             background: var(--tertiary-color);
+            color: var(--surface-color);
         }
 
         footer {
@@ -134,6 +183,7 @@
             padding: 2rem;
             font-family: 'JetBrains Mono', monospace;
             opacity: 0.7;
+            font-weight: 300;
         }
 
         a {
@@ -146,9 +196,21 @@
             color: var(--accent-color);
         }
 
-        .badge {
-            display: inline-block;
-            margin: 0.2rem;
+        .project-links {
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            margin-right: 1rem;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
         }
 
         /* Responsive Design */
@@ -160,6 +222,14 @@
             h2 {
                 font-size: 1.75rem;
             }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -168,25 +238,26 @@
     <div class="container">
         <header>
             <h1>citizenhicks</h1>
-            <p class="subtitle">ai enthusiast</p>
+            <p class="subtitle">multi-agent systems architect</p>
             <div><a href="https://x.com/citizenhicks" target="_blank">X/Twitter</a></div>
         </header>
 
         <section class="section">
             <h2>About Me</h2>
-            <p>indie ml researcher and ai enthusiast with a passion for developing innovative solutions. experienced in large language models and reinforcement learning. focusing on creating impactful and scalable applications.</p>
+            <p>indie ml researcher and ai enthusiast specializing in multi-agent systems and autonomous ai architectures. building the next generation of multi agent applications that enable complex startegic modeling, planning, and tool use. passionate about creating intelligent systems that can decompose problems, coordinate across specialized agents, and deliver sophisticated solutions through orchestrated workflows. focused on pushing the boundaries of what agents can achieve in real-world applications especially in model development and validation in the fincancial services sector.</p>
             <div class="skills">
-                <span class="tag">Python</span>
-                <span class="tag">TensorFlow</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">MLX</span>
-                <span class="tag">Swift</span>
-                <span class="tag">SwiftUI</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">LLM</span>
-                <span class="tag">Reinforcement Learning</span>
+                <span class="tag">Multi-Agent Systems</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">LangGraph</span>
+                <span class="tag">smolagents</span>
+                <span class="tag">Agent Orchestration</span>
+                <span class="tag">ReAct Framework</span>
+                <span class="tag">Monte Carlo Tree Search</span>
+                <span class="tag">Autonomous Workflows</span>
+                <span class="tag">LLM Agents</span>
+                <span class="tag">Symbolic Reasoning</span>
                 <span class="tag">Probability theory</span>
-                
+                <span class="tag">Reinforcement learning</span>
             </div>
         </section>
 
@@ -194,91 +265,114 @@
             <h2>Projects</h2>
             <div class="projects">
 
-                <!-- Project 0 -->
+                <div class="project-card featured beta-tag">
+                    <h3>artemis <span class="beta-label">CLOSED BETA</span></h3>
+                    <p>Advanced multi-agent actuarial analysis system featuring 6 specialized autonomous agents orchestrated by a central manager. Built on smolagents (POC) and LangGraph (Production) frameworks with openrouter integration. This agentic system demostrates cutting-edge agent coordination, tool use, and complex reasoning capabilities for insurance product analysis and pricing algorithm discovery.</p>
+                    <ul>
+                        <li>Manager Agent orchestrates 5 specialized agents: Report, Knowledge, Actuarial, Advisor, and Critic agents</li>
+                        <li>Autonomous document analysis with PDF extraction and intelligent parsing</li>
+                        <li>Agent-based symbolic regression with PySR for formula discovery</li>
+                        <li>Real-time agent monitoring, task interruption, and session persistence</li>
+                        <li>Advanced memory management system with context-aware search across agent activities</li>
+                        <li>Intelligent model routing and dynamic planning capabilities for optimal agent performance</li>
+                    </ul>
+                    <p>Showcases state-of-the-art multi-agent orchestration with tool use, strategic planning, adversarial validation, and autonomous workflow execution in a production-ready framework.</p>
+                    <div class="project-links">
+                        <a href="https://thinkingsand.dev" target="_blank">Visit Beta Site: thinkingsand.dev</a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <h3>pegasus</h3>
-                    <p>Pegasus is an AI-driven financial analysis platform designed to streamline document ingestion and reporting. It leverages large language models (LLMs) for both text and multimodal (vision) tasks, enabling complex PDF ingestion, chunk-wise summaries, and robust interactive chat features.</p>
-                    <a href="https://github.com/citizenhicks/pegasus" target="_blank">GitHub Repository</a>
+                    <p>Multi-agent financial analysis platform featuring and ai agent that processes complex financial documents with tool use. Pegasus implements sophisticated agent workflows where specialized agent handle document ingestion, analysis, and report generation through task decomposition and tool use.</p>
+                    <ul>
+                        <li>Agentic system with a single ai for document processing, analysis, and synthesis</li>
+                        <li>Agent-driven PDF parsing with context-aware chunking strategies and memory systems</li>
+                        <li>Tool-using agent with access to multimodal capabilities for comprehensive document understanding</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/citizenhicks/pegasus" target="_blank">GitHub Repository</a>
+                    </div>
                 </div>
 
-                <!-- Project 1 -->
                 <div class="project-card">
                     <h3>Entropix</h3>
-                    <p>Closely following and contributing to the Entropix project.</p>
-                    <a href="https://github.com/xjdr-alt/entropix" target="_blank">GitHub Repository</a>
+                    <p>Closely following and contributing to the Entropix project - an innovative approach to adaptive sampling and dynamic inference strategies for language models, enabling more intelligent and context-aware generation through entropy-based decision making.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/xjdr-alt/entropix" target="_blank">GitHub Repository</a>
+                    </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card">
                     <h3>GRAPES: Graph-based Reasoning and Planning with Ensemble Systems</h3>
-                    <p>An innovative approach to enhance language model reasoning using Monte Carlo Tree Search.</p>
+                    <p>An advanced multi-agent reasoning framework that enhances language model capabilities through Monte Carlo Tree Search. Implements strategic planning and ensemble decision-making for complex problem-solving tasks.</p>
                     <ul>
-                        <li>Tech Stack: Python, asyncio, Pydantic</li>
-                        <li>Achievement: Improved accuracy from 62.50% to 78.12% on complex reasoning tasks</li>
+                        <li>Tech Stack: Python, asyncio, Pydantic, Agent Orchestration</li>
+                        <li>Achievement: Improved accuracy from 62.50% to 78.12% on complex reasoning tasks through dual-agent collaboration</li>
+                        <li>Features: Tree-based search strategies, ensemble voting, adaptive agent selection</li>
                     </ul>
-                    <a href="https://github.com/Arrabonae/grapes" target="_blank">GitHub Repository</a>
+                    <div class="project-links">
+                        <a href="https://github.com/Arrabonae/grapes" target="_blank">GitHub Repository</a>
+                    </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card">
                     <h3>TD3-HER for Robotic Control</h3>
-                    <p>Implementation of Twin Delayed Deep Deterministic Policy Gradient with Hindsight Experience Replay for sparse reward environments.</p>
+                    <p>Implementation of autonomous robotic agents using Twin Delayed Deep Deterministic Policy Gradient with Hindsight Experience Replay. This project demonstrates agent-based learning in sparse reward environments, where robotic agents must discover successful strategies through autonomous exploration and goal-conditioned learning.</p>
                     <ul>
-                        <li>Tech Stack: Python, TensorFlow, Gymnasium, Panda-Gym</li>
-                        <li>Features: Sparse reward learning, Hindsight Experience Replay, Twin Delayed DDPG</li>
+                        <li>Tech Stack: Python, TensorFlow, Gymnasium, Panda-Gym, RL</li>
+                        <li>Features: Autonomous goal discovery, experience replay for agent learning, twin-agent architecture for stable training</li>
+                        <li>Applications: Robotic manipulation tasks with autonomous agent control</li>
                     </ul>
-                    <a href="https://github.com/Arrabonae/TD3_HER" target="_blank">GitHub Repository</a>
+                    <div class="project-links">
+                        <a href="https://github.com/Arrabonae/TD3_HER" target="_blank">GitHub Repository</a>
+                    </div>
                 </div>
 
-                <!-- Project 4 -->
                 <div class="project-card">
                     <h3>CyberSweat (also known as workout.AI)</h3>
-                    <p>CyberSweat, the ultimate fitness companion for your workouts! Our app uses GPT3.5 to generate personalized workout plans for you, based on your goals and preferences. Whether you're looking to build muscle, lose weight, or improve your overall fitness, the CyberSweat has you covered. With a wide range of exercises to choose from, you can mix and match to create the perfect workout for your needs.</p>
+                    <p>One of the first applications to leverage generative AI for personalized fitness planning. CyberSweat uses GPT-3.5 as a backend that understands user goals, preferences, and constraints to generate fully customized workout plans. The app adapts recommendations based on user feedbacks.</p>
                     <ul>
-                        <li>Tech Stack: Swift, SwiftUI, Firebase, OpenAI</li>
-                        <li>Features: One of the first apps which used generative ai to create personalised workouts</li>
+                        <li>Tech Stack: Swift, SwiftUI, Firebase, OpenAI API</li>
+                        <li>Features: Pioneering use of ai for dynamic workout generation and personalization</li>
+                        <li>Impact: Early demonstration of practical applications in health and fitness</li>
                     </ul>
                     <p>closed sourcecode</p>
                 </div>
 
-                <!-- Continue adding other projects in similar format -->
             </div>
         </section>
 
         <section class="section">
             <h2>Skills</h2>
             <div class="skills">
+                <span class="tag">Agent Frameworks</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">LangGraph</span>
+                <span class="tag">smolagents</span>
+                <span class="tag">Tool Development</span>
+                <span class="tag">Memory Systems</span>
+                <span class="tag">Planning Algorithms</span>
+                <span class="tag">Task Decomposition</span>
                 <span class="tag">Python</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">TensorFlow</span>
-                <span class="tag">MLX</span>
-                <span class="tag">Swift</span>
-                <span class="tag">SwiftUI</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Reinforcement Learning</span>
-                <span class="tag">Graph Algorithms</span>
-                <span class="tag">LLM</span>
-                <span class="tag">iOS Development</span>
-                <span class="tag">AWS</span>
-                <span class="tag">Firebase</span>
-                <span class="tag">Docker</span>
-                
+                <span class="tag">FastAPI</span>
+                <span class="tag">Async Programming</span>
+                <span class="tag">Vector Databases</span>
+                <span class="tag">next.js</span>
             </div>
         </section>
 
         <section class="section">
             <h2>GitHub Stats</h2>
-            <p><img src="https://github-readme-stats.vercel.app/api?username=citizenhicks&show_icons=true&theme=tokyonight" alt="GitHub Stats"></p>
+            <p><img src="https://github-readme-stats.vercel.app/api?username=citizenhicks&show_icons=true&theme=catppuccin_mocha" alt="GitHub Stats" style="max-width: 100%; height: auto;"></p>
         </section>
 
-
         <footer>
-            <p>Find me on <a href="https://x.com/citizenhicks" target="_blank">X</a> | <a href="https://github.com/citizenhicks" target="_blank">GitHub</a> | Built with passion and code</p>
+            <p>Find me on <a href="https://x.com/citizenhicks" target="_blank">X</a> | <a href="https://github.com/citizenhicks" target="_blank">GitHub</a> | Building autonomous AI systems</p>
         </footer>
     </div>
 
     <script>
-        // Simple gradient animation with Three.js
         const canvas = document.getElementById('gradient-canvas');
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
         const scene = new THREE.Scene();
@@ -304,11 +398,12 @@
                     vec2 uv = vUv;
                     float t = u_time * 0.1;
                     
-                    vec3 color1 = vec3(0.12, 0.15, 0.21); // #1f2335
-                    vec3 color2 = vec3(0.15, 0.16, 0.23); // #24283b
-                    vec3 color3 = vec3(0.16, 0.18, 0.26); // #292e42
-                    vec3 color4 = vec3(0.23, 0.26, 0.38); // #3b4261
-                    vec3 color5 = vec3(0.25, 0.28, 0.41); // #414868
+                    // Catppuccin Mocha colors
+                    vec3 color1 = vec3(0.118, 0.118, 0.180); // #1e1e2e
+                    vec3 color2 = vec3(0.094, 0.094, 0.145); // #181825
+                    vec3 color3 = vec3(0.192, 0.200, 0.267); // #313244
+                    vec3 color4 = vec3(0.271, 0.282, 0.376); // #45475a
+                    vec3 color5 = vec3(0.345, 0.357, 0.467); // #585b70
                     
                     // Create a dynamic gradient
                     vec3 color = mix(color1, color2, uv.x + sin(t) * 0.1);
