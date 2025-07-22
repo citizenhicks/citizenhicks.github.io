@@ -144,6 +144,33 @@ gap: 0.5rem;
 background: var(--tertiary-color);
 color: var(--surface-color);
 }
+.back-to-blog, .back-to-home, .share-twitter {
+    padding: 0.5rem 1rem;
+    background: rgba(137, 180, 250, 0.1);
+    border: 1px solid rgba(137, 180, 250, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-to-blog:hover, .back-to-home:hover {
+    background: rgba(137, 180, 250, 0.2);
+    border-color: var(--accent-color);
+}
+
+.share-twitter {
+    background: rgba(29, 161, 242, 0.1);
+    border-color: rgba(29, 161, 242, 0.3);
+    color: #1DA1F2;
+}
+
+.share-twitter:hover {
+    background: rgba(29, 161, 242, 0.2);
+    border-color: #1DA1F2;
+    color: #1DA1F2;
+}
+
 footer {
 text-align: center;
 padding: 2rem;
