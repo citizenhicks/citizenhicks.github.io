@@ -1,0 +1,30 @@
+
+title: "hicksford | citizenhicks"
+description: "indie ml engineer and ai enthusiast"
+url: "https://citizenhicks.github.io/blog" 
+baseurl: "/blog"
+
+markdown: kramdown
+highlighter: rouge
+
+
+plugins:
+- jekyll-feed
+- jekyll-sitemap
+
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
+- node_modules
+- vendor
+
+collections:
+projects:
+output: false
+
+defaults:
+- scope:
+  path: ""
+  type: "pages"
+  values:
