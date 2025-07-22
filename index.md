@@ -8,9 +8,7 @@ title: "hicksford | citizenhicks"
   <div>
       <nav class="post-nav">
           <a href="{{ '/blog' | relative_url }}" class="to-blog">blog</a>
-      </nav>
-      | <a href="{{ site.data.site.author.twitter }}"
-  target="_blank">X/Twitter</a>
+      </nav> | <a href="{{ site.data.site.author.twitter }}"target="_blank">X/Twitter</a>
   </div>
 
 </header>
