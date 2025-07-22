@@ -1,0 +1,36 @@
+author:
+  name: citizenhicks
+  subtitle: indie ml engineer
+  twitter: https://x.com/citizenhicks
+  github: https://github.com/citizenhicks
+skills:
+  about:
+  - Multi-Agent Systems
+  - LangChain
+  - LangGraph
+  - smolagents
+  - Agent Orchestration
+  - ReAct Framework
+  - Monte Carlo Tree Search
+  - Autonomous Workflows
+  - LLM Agents
+  - Symbolic Reasoning
+  - Probability theory
+  - Reinforcement learning
+  technical:
+  - Agent Frameworks
+  - LangChain
+  - LangGraph
+  - smolagents
+  - Tool Development
+  - Memory Systems
+  - Planning Algorithms
+  - Task Decomposition
+  - Python
+  - PyTorch
+  - AWS
+  - Swift
+  - FastAPI
+  - Async Programming
+  - Vector Databases
+  - next.js
