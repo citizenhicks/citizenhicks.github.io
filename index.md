@@ -6,7 +6,7 @@ title: "hicksford | citizenhicks"
 <h1>{{ site.data.site.author.name }}</h1>
 <p class="subtitle">{{ site.data.site.author.subtitle }}</p>
       <nav style="margin: 1rem 0;">
-        <a href="{{ '/blog' | relative_url }}" class="to-blog">blog</a>
+        <a href="{{ '/blog' | relative_url }}" class="back-to-blog">blog</a>
         <span style="margin: 0 1rem;">|</span>
         <a href="{{ site.data.site.author.twitter }}" target="_blank">X/Twitter</a>
         <a href="{{ site.data.site.author.github }}" target="_blank">GitHub</a>
