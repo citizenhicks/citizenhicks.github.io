@@ -5,7 +5,14 @@ title: "hicksford | citizenhicks"
 <header>
 <h1>{{ site.data.site.author.name }}</h1>
 <p class="subtitle">{{ site.data.site.author.subtitle }}</p>
-<div><a href="{{ site.data.site.author.twitter }}" target="_blank">X/Twitter</a></div>
+  <div>
+      <nav class="post-nav">
+          <a href="{{ '/blog' | relative_url }}" class="to-blog">blog</a>
+      </nav>
+      | <a href="{{ site.data.site.author.twitter }}"
+  target="_blank">X/Twitter</a>
+  </div>
+
 </header>
 <section class="section">
 <h2>About Me</h2>
