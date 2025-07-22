@@ -1,0 +1,56 @@
+- name: "artemis"
+  featured: true
+  beta: true
+  description: "Advanced multi-agent actuarial analysis system featuring 6 specialized autonomous agents orchestrated by a central manager. Built on smolagents (POC) and LangGraph (Production) frameworks with openrouter integration. This agentic system demostrates cutting-edge agent coordination, tool use, and complex reasoning capabilities for insurance product analysis and pricing algorithm discovery."
+  features:
+  - "Manager Agent orchestrates 5 specialized agents: Report, Knowledge, Actuarial, Advisor, and Critic agents"
+  - "Autonomous document analysis with PDF extraction and intelligent parsing"
+  - "Agent-based symbolic regression with PySR for formula discovery"
+  - "Real-time agent monitoring, task interruption, and session persistence"
+  - "Advanced memory management system with context-aware search across agent activities"
+  - "Intelligent model routing and dynamic planning capabilities for optimal agent performance"
+  additional_info: "Showcases state-of-the-art multi-agent orchestration with tool use, strategic planning, adversarial validation, and autonomous workflow execution in a production-ready framework."
+  links:
+  - text: "Visit Beta Site: thinkingsand.dev"
+    url: "https://thinkingsand.dev"
+- name: "pegasus"
+  description: "Multi-agent financial analysis platform featuring and ai agent that processes complex financial documents with tool use. Pegasus implements sophisticated agent workflows where specialized agent handle document ingestion, analysis, and report generation through task decomposition and tool use."
+  features:
+  - "Agentic system with a single ai for document processing, analysis, and synthesis"
+  - "Agent-driven PDF parsing with context-aware chunking strategies and memory systems"
+  - "Tool-using agent with access to multimodal capabilities for comprehensive document understanding"
+  links:
+  - text: "GitHub Repository"
+    url: "https://github.com/citizenhicks/pegasus"
+- name: "Entropix"
+  description: "Closely following and contributing to the Entropix project - an innovative approach to adaptive sampling and dynamic inference strategies for language models, enabling more intelligent and context-aware generation through entropy-based decision making."
+  links:
+  - text: "GitHub Repository"
+    url: "https://github.com/xjdr-alt/entropix"
+- name: "GRAPES: Graph-based Reasoning and Planning with Ensemble Systems"
+  description: "An advanced multi-agent reasoning framework that enhances language model capabilities through Monte Carlo Tree Search. Implements strategic planning and ensemble decision-making for complex problem-solving tasks."
+  tech_stack: "Python, asyncio, Pydantic, Agent Orchestration"
+  achievement: "Improved accuracy from 62.50% to 78.12% on complex reasoning tasks through dual-agent collaboration"
+  features:
+  - "Tech Stack: Python, asyncio, Pydantic, Agent Orchestration"
+  - "Achievement: Improved accuracy from 62.50% to 78.12% on complex reasoning tasks through dual-agent collaboration"
+  - "Features: Tree-based search strategies, ensemble voting, adaptive agent selection"
+  links:
+  - text: "GitHub Repository"
+    url: "https://github.com/Arrabonae/grapes"
+- name: "TD3-HER for Robotic Control"
+  description: "Implementation of autonomous robotic agents using Twin Delayed Deep Deterministic Policy Gradient with Hindsight Experience Replay. This project demonstrates agent-based learning in sparse reward environments, where robotic agents must discover successful strategies through autonomous exploration and goal-conditioned learning."
+  features:
+  - "Tech Stack: Python, TensorFlow, Gymnasium, Panda-Gym, RL"
+  - "Features: Autonomous goal discovery, experience replay for agent learning, twin-agent architecture for stable training"
+  - "Applications: Robotic manipulation tasks with autonomous agent control"
+  links:
+  - text: "GitHub Repository"
+    url: "https://github.com/Arrabonae/TD3_HER"
+- name: "CyberSweat (also known as workout.AI)"
+  description: "One of the first applications to leverage generative AI for personalized fitness planning. CyberSweat uses GPT-3.5 as a backend that understands user goals, preferences, and constraints to generate fully customized workout plans. The app adapts recommendations based on user feedbacks."
+  features:
+  - "Tech Stack: Swift, SwiftUI, Firebase, OpenAI API"
+  - "Features: Pioneering use of ai for dynamic workout generation and personalization"
+  - "Impact: Early demonstration of practical applications in health and fitness"
+  additional_info: "closed sourcecode"
